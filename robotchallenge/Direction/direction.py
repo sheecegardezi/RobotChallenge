@@ -1,4 +1,4 @@
-from src.constants import DIRECTIONS, ROTATE_DIRECTIONS
+from robotchallenge.constants import DIRECTIONS, ROTATE_DIRECTIONS
 
 
 class Direction:

@@ -1,5 +1,5 @@
-from src.Direction.direction import Direction, ROTATE_DIRECTIONS
-from src.constants import DIRECTION_STEP_MAPPING, DIRECTION_ROTATION_MAPPING
+from robotchallenge.Direction.direction import Direction, ROTATE_DIRECTIONS
+from robotchallenge.constants import DIRECTION_STEP_MAPPING, DIRECTION_ROTATION_MAPPING
 
 
 class Robot:

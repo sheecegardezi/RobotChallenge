@@ -1,13 +1,18 @@
-from src.Direction.direction import Direction
-from src.constants import ROTATE_DIRECTIONS
+from robotchallenge.Direction.direction import Direction
+from robotchallenge.constants import ROTATE_DIRECTIONS
+import pathlib
 
 
 class Compiler(object):
-    def __init__(self, commands_string):
+    def __init__(self, commands_string=None, file_path=None):
         self.commands = []
-        self.commands_string = commands_string
+        if file_path is not None:
+            self.commands_string = pathlib.Path(file_path).read_text()
+        else:
+            self.commands_string = commands_string
 
     def compile(self):
+
         for command_string in self.commands_string.split("\n"):
             command = command_string.replace(",", " ").split(" ")
             command = [x for x in command if x not in ["", [], None]]
