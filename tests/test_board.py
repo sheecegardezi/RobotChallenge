@@ -1,4 +1,4 @@
-from src.Board.board import Board
+from robotchallenge.Board.board import Board
 
 
 def test_board():
