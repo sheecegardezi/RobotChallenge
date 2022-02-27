@@ -1,0 +1,52 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: [3.6, 3.7, 3.8, 3.9]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          pip install -r requirements.txt
+      - name: Robot Challenge
+        run: python -c "import sys; print(sys.version)"
+      - name: Robot Challenge Tests
+        run: |
+                pip install pytest
+                pip install pytest-cov
+                pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+      - name: Robot Challenge Documentation
+        run: |
+                pip install sphinx
+                make html
+      - name: Robot Challenge Coverage
+        run: |
+                pip install coverage
+                coverage xml --include=com/*.py
+                coverage html --include=com/*.py
+      - name: Robot Challenge Coverage Report
+        run: |
+                pip install codecov
+                codecov
+      - name: Build package
+        run: python -m build
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
