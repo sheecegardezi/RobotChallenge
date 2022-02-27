@@ -12,7 +12,7 @@ An attempt at Robot Challenge.
 ## How to Install
 
 
-    git clone 
+    git clone https://github.com/sheecegardezi/RobotChallenge.git
     pip install -r requirements.txt
     pip install -e .
 
