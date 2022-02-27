@@ -17,7 +17,7 @@ An attempt at Robot Challenge.
     pip install -e .
 
 --------------------------------------------------------------------------------
-## Running Software 
+## Running Software Locally
 
 
     robotchallenge --help
@@ -39,6 +39,23 @@ An attempt at Robot Challenge.
     # using new test file 
     docker run -it --rm -v "`pwd`/tests/test_data/sample_problems.txt":"/app/tests/test_data/sample_problems.txt" robotchallenge -f "/app/tests/test_data/sample_problems.txt"
     
+
+
+--------------------------------------------------------------------------------
+## Running Software using prebaked Docker Image
+
+
+    # pulling image from repo
+    docker image pull sheecegardezi/robotchallenge:latest
+
+    # printing help
+    docker run -it --rm sheecegardezi/robotchallenge:latest -h
+
+    # using existing test file 
+    docker run -it --rm sheecegardezi/robotchallenge:latest -f "/app/tests/test_data/sample_problems.txt"
+
+    # using new test file 
+    docker run -it --rm -v "`pwd`/tests/test_data/sample_problems.txt":"/app/tests/test_data/sample_problems.txt" sheecegardezi/robotchallenge:latest -f "/app/tests/test_data/sample_problems.txt"
 
 --------------------------------------------------------------------------------    
 ### Running Testing
