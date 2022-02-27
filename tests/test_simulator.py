@@ -1,7 +1,7 @@
-from src.Board.board import Board
-from src.Robot.robot import Robot
-from src.Compiler.compiler import Compiler
-from src.Simulator.simulator import Simulator
+from robotchallenge.Board.board import Board
+from robotchallenge.Robot.robot import Robot
+from robotchallenge.Compiler.compiler import Compiler
+from robotchallenge.Simulator.simulator import Simulator
 
 
 def test_simulator():

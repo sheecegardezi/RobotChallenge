@@ -1,6 +1,6 @@
-from src.Robot.robot import Robot
-from src.Robot.robot import RobotTypeError
-from src.Direction.direction import Direction
+from robotchallenge.Robot.robot import Robot
+from robotchallenge.Robot.robot import RobotTypeError
+from robotchallenge.Direction.direction import Direction
 
 
 def test_robot():

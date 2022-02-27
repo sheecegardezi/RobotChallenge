@@ -1,6 +1,6 @@
-from src.Compiler.compiler import Compiler
-from src.Compiler.compiler import CompilerError
-from src.Direction.direction import Direction
+from robotchallenge.Compiler.compiler import Compiler
+from robotchallenge.Compiler.compiler import CompilerError
+from robotchallenge.Direction.direction import Direction
 
 
 def test_compiler():

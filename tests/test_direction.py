@@ -1,5 +1,5 @@
-from src.Direction.direction import Direction
-from src.Direction.direction import DirectionError
+from robotchallenge.Direction.direction import Direction
+from robotchallenge.Direction.direction import DirectionError
 
 
 def test_direction():
