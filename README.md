@@ -13,6 +13,7 @@ An attempt at Robot Challenge.
 
 
     git clone https://github.com/sheecegardezi/RobotChallenge.git
+    cd RobotChallenge
     pip install -r requirements.txt
     pip install -e .
 
@@ -26,6 +27,10 @@ An attempt at Robot Challenge.
 
 --------------------------------------------------------------------------------
 ## Running Software in Docker 
+
+    # clone repo
+    git clone https://github.com/sheecegardezi/RobotChallenge.git
+    cd RobotChallenge
     
     # building image locally
     docker build -t robotchallenge .
