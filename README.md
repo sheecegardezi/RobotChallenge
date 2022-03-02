@@ -2,7 +2,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![codecov](https://codecov.io/gh/sheecegardezi/RobotChallenge/branch/main/graph/badge.svg)](https://codecov.io/gh/sheecegardezi/RobotChallenge)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![CI test](https://github.com/sheecegardezi/RobotChallenge/actions/workflows/actions.yml/badge.svg)](https://github.com/pypa/build/actions/workflows/actions.yml)
+[![CI test](https://github.com/sheecegardezi/RobotChallenge/actions/workflows/actions.yml/badge.svg)](https://github.com/sheecegardezi/RobotChallenge/actions)
 [![PyPI version](https://badge.fury.io/py/robotchallenge.svg)](https://pypi.org/project/robotchallenge/)
 
 
