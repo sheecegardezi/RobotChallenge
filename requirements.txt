@@ -3,3 +3,7 @@ pytest==7.0.1
 pip<=22.0.3
 setuptools<=60.9.3
 wheel<=0.37.1
+pytest-cov<=3.0.0
+sphinx<=4.4.0 # for docs
+coverage<=6.3.2 # for docs
+codecov<=2.1.12

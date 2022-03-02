@@ -1,64 +1,78 @@
-from robotchallenge.Direction.direction import Direction
-from robotchallenge.constants import ROTATE_DIRECTIONS
+from robotchallenge.constants import COMMANDS
+from robotchallenge.Commands.utlities import create_command
+from robotchallenge.Commands.command import Command
 import pathlib
+from typing import List
 
 
 class Compiler(object):
-    def __init__(self, commands_string=None, file_path=None):
-        self.commands = []
+    """
+    Compiler class.
+    It converts a string into a list of instructions. That can be processed by the simulator. Input can be a file or a
+    string where each instruction is seperated by end of line character.
+    """
+
+    def __init__(self, commands_string: str = None, file_path: str = None) -> None:
+        """
+        Initialize the compiler.
+        :param commands_string:
+        :param file_path:
+        """
+        self.instructions = []
         if file_path is not None:
             self.commands_string = pathlib.Path(file_path).read_text()
         else:
             self.commands_string = commands_string
 
-    def compile(self):
+    def compile(self) -> None:
+        """
+        Compile the commands string into a list of instructions.
+        :return: None
+        """
 
-        for command_string in self.commands_string.split("\n"):
-            command = command_string.replace(",", " ").split(" ")
-            command = [x for x in command if x not in ["", [], None]]
+        for line in self.commands_string.split("\n"):
+            tokens = line.replace(",", " ").split(" ")
+            tokens = [x for x in tokens if x not in ["", [], None]]
 
-            if command[0] == "PLACE":
-                command = {
-                    'command': command[0],
-                    'x_coordinate': int(command[1]),
-                    'y_coordinate': int(command[2]),
-                    'direction': Direction(command[3])
-                }
-            elif command[0] in ["MOVE"]:
-                command = {
-                    'command': command[0]
-                }
-            elif command[0] in ROTATE_DIRECTIONS:
-                command = {
-                    'command': "ROTATE",
-                    'direction': Direction(command[0])
-                }
-            elif command[0] in ["REPORT"]:
-                command = {
-                    'command': command[0]
-                }
+            # ignore empty lines
+            if not tokens:
+                continue
+
+            # ignr OUTPUT command line
+            if tokens[0] == "Output:":
+                continue
+
+            if tokens[0] not in COMMANDS:
+                raise CompilerError(f"Invalid Command: {tokens[0]}")
+
+            if len(tokens) == 1:
+                self.instructions.append(create_command(tokens[0]))
             else:
-                raise CompilerError(f"Invalid Command: {command[0]}")
+                self.instructions.append(create_command(tokens[0], *tokens[1:]))
 
-            self.commands.append(command)
-
-    def get_commands(self):
-        return self.commands
-
-    # def __str__(self):
-    #     output_string = "Compiler(\n"
-    #     for command in self.commands:
-    #         output_string += "\t"+str(command) + "\n"
-    #     output_string += ")"
-    #     return output_string
-    #
-    # def __repr__(self):
-    #     return self.__str__()
+    def get_instructions(self) -> List[Command]:
+        """
+        Get the compiled commands.
+        :return: list of commands to be processed by the simulator
+        """
+        return self.instructions
 
 
 class CompilerError(Exception):
-    def __init__(self, data):
+    """
+    CompilerError class.
+    """
+
+    def __init__(self, data: str):
+        """
+        Initialize the CompilerError class.
+        :param data:
+        """
         self.data = data
 
-    def __str__(self):
+    def __str__(self)-> str:
+        """
+        Return the error message.
+        :return: error msg as string
+        """
         return repr(self.data)

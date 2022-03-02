@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -20,8 +20,7 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest
+          python -m pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
       - name: Robot Challenge
         run: python -c "import sys; print(sys.version)"
@@ -29,24 +28,28 @@ jobs:
         run: |
                 pip install pytest
                 pip install pytest-cov
-                pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
-      - name: Robot Challenge Documentation
-        run: |
-                pip install sphinx
-                make html
+                pytest --cov=robotchallenge -rx -s tests --doctest-modules  --cov-report=xml --cov-report=html --junitxml=junit/test-results.xml
       - name: Robot Challenge Coverage
         run: |
                 pip install coverage
-                coverage xml --include=com/*.py
-                coverage html --include=com/*.py
-      - name: Robot Challenge Coverage Report
-        run: |
-                pip install codecov
-                codecov
-      - name: Build package
-        run: python -m build
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+                coverage xml --include=robotchallenge/*.py
+                coverage html --include=robotchallenge/*.py
+      - name: Robot Challenge Upload Coverage Report
+        uses: codecov/codecov-action@v2
         with:
+          token: ${{ secrets.CODECOVTOKEN }}
+          env_vars: OS,PYTHON
+          fail_ci_if_error: true
+          verbose: true
+      - name: Build package
+        run: |
+          python -m pip install --upgrade build
+          python -m build
+      - name: Publish a Python distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          print_hash: true
+          verbose: true
+          skip_existing: true
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
