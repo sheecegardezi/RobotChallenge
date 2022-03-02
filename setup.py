@@ -14,4 +14,5 @@ setup(
     install_requires=[
           'pytest',
       ],
+    python_requires='>=3.7',
 )
