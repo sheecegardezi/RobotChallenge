@@ -1,4 +1,9 @@
 # RobotChallenge
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![codecov](https://codecov.io/gh/sheecegardezi/RobotChallenge/branch/main/graph/badge.svg?token=YR125ZTT27)](https://codecov.io/gh/sheecegardezi/RobotChallenge)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/)
+
 
 Robot Challenge
 
