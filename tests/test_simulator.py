@@ -24,7 +24,7 @@ def test_simulator():
 
     compiler = Compiler(commands_string)
     compiler.compile()
-    commands = compiler.get_commands()
+    commands = compiler.get_instructions()
 
     # Create a new simulator
     simulator = Simulator(board, robot, commands)
