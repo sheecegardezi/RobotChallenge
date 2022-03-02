@@ -32,7 +32,7 @@ jobs:
       - name: Robot Challenge Documentation
         run: |
                 pip install sphinx
-                make html
+                cd docs && make html
       - name: Robot Challenge Coverage
         run: |
                 pip install coverage
