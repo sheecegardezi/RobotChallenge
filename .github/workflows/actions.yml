@@ -29,10 +29,6 @@ jobs:
                 pip install pytest
                 pip install pytest-cov
                 pytest --cov=robotchallenge -rx -s tests --doctest-modules  --cov-report=xml --cov-report=html --junitxml=junit/test-results.xml
-      - name: Robot Challenge Documentation
-        run: |
-                pip install sphinx
-                cd docs && make html
       - name: Robot Challenge Coverage
         run: |
                 pip install coverage
