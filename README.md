@@ -1,8 +1,9 @@
 # RobotChallenge
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![codecov](https://codecov.io/gh/sheecegardezi/RobotChallenge/branch/main/graph/badge.svg?token=YR125ZTT27)](https://codecov.io/gh/sheecegardezi/RobotChallenge)
+[![codecov](https://codecov.io/gh/sheecegardezi/RobotChallenge/branch/main/graph/badge.svg)](https://codecov.io/gh/sheecegardezi/RobotChallenge)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/)
+[![CI test](https://github.com/sheecegardezi/RobotChallenge/actions/workflows/actions.yml/badge.svg)](https://github.com/pypa/build/actions/workflows/actions.yml)
+[![PyPI version](https://badge.fury.io/py/robotchallenge.svg)](https://pypi.org/project/robotchallenge/)
 
 
 Robot Challenge
