@@ -65,5 +65,4 @@ An attempt at Robot Challenge.
 --------------------------------------------------------------------------------    
 ### Running Testing
 
-
-    pytest -rx -s tests
+    pytest --cov=robotchallenge -rx -s tests
