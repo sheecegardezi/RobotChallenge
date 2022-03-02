@@ -1,38 +1,59 @@
+SIZE_OF_BOARD = 5
+STARTING_POSITION = (0, 0)
+STARTING_DIRECTION = "NORTH"
+
 ROTATE_DIRECTIONS = [
     "LEFT",
-    "RIGHT"
+    "RIGHT",
 ]
 
 DIRECTIONS = [
     "NORTH",
     "EAST",
     "SOUTH",
-    "WEST"
+    "WEST",
 ]
 
 DIRECTION_STEP_MAPPING = {
     "NORTH": (0, 1),
     "EAST": (1, 0),
-    "SOUTH": (0, -1),
     "WEST": (-1, 0),
+    "SOUTH": (0, -1),
 }
 
 DIRECTION_ROTATION_MAPPING = {
     "NORTH": {
         "LEFT": "WEST",
-        "RIGHT": "EAST"
+        "RIGHT": "EAST",
     },
     "EAST": {
         "LEFT": "NORTH",
-        "RIGHT": "SOUTH"
-
+        "RIGHT": "SOUTH",
     },
     "WEST": {
         "LEFT": "SOUTH",
-        "RIGHT": "NORTH"
+        "RIGHT": "NORTH",
     },
     "SOUTH": {
         "LEFT": "EAST",
-        "RIGHT": "WEST"
-    }
+        "RIGHT": "WEST",
+    },
+}
+
+COMMANDS = {
+        "PLACE": {
+            "x_coordinate": int,
+            "y_coordinate": int,
+            "direction": str,
+        },
+        "MOVE": {
+        },
+        "LEFT": {
+        },
+        "RIGHT": {
+        },
+        "REPORT": {
+        },
+        "OUTPUT": {
+        }
 }
