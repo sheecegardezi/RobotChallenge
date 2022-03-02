@@ -45,8 +45,11 @@ jobs:
         run: |
           python -m pip install --upgrade build
           python -m build
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      - name: Publish a Python distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
+          print_hash: true
+          verbose: true
+          skip_existing: true
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
