@@ -18,8 +18,8 @@ class Command:
     def __repr__(self):
         return f'Command(command={self.command}, kwargs=({self.kwargs}))'
 
-    def __eq__(self, other):
-        return self.command == other.command
+    def __eq__(self, command):
+        return self.command == command
 
     def __hash__(self):
         return self.command.__hash__()
