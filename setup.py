@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='robotchallenge',
-    version='1.0.0',
+    version='1.0.1',
     license='Apache 2.0',
     author="Sheece Gardezi",
     author_email='sheecegardezi@gmail.com',
