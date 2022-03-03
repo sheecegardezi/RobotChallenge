@@ -17,11 +17,28 @@ An attempt at Robot Challenge.
 --------------------------------------------------------------------------------
 ## How to Install
 
-
+    # download and install python >=3.7 fromhttps://www.python.org/downloads/
+    # download source code using git
     git clone https://github.com/sheecegardezi/RobotChallenge.git
     cd RobotChallenge
+
+    # install create a virtual environment
+    python -m venv venv
+
+    # activate the virtual environment on Linux
+    source venv/bin/activate
+    # activate the virtual environment on windows
+    # source venv\Scripts\activate
+
+    # install the requirements
     pip install -r requirements.txt
+
+    # install the software
     pip install -e .
+
+    # run the tests
+    pytest --cov=robotchallenge -rx -s tests
+
 
 --------------------------------------------------------------------------------
 ## Running Software Locally
@@ -29,6 +46,24 @@ An attempt at Robot Challenge.
 
     robotchallenge --help
     robotchallenge -f "`pwd`/tests/test_data/sample_problems.txt"
+
+
+--------------------------------------------------------------------------------
+## Usage of the Software
+
+    # Create a file with a new commond is each line eg. input_file.txt:
+    
+        PLACE 1,2,EAST
+        MOVE
+        MOVE
+        LEFT
+        MOVE
+        REPORT
+        Output: 3,3,NORTH
+    
+    # Run the software with the above file
+    
+        robotchallenge -f "`pwd`/input_file.txt"    
 
 
 --------------------------------------------------------------------------------
