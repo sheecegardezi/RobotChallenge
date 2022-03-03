@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Union
 
 
 class Command:
@@ -29,7 +29,7 @@ class Command:
         """
         self.kwargs[argument] = value
 
-    def get_argument(self, argument) -> Any[str, int]:
+    def get_argument(self, argument) -> Union[str, int]:
         """
         Returns the value of the argument
         :param argument: name of the argument
