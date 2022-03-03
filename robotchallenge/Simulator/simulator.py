@@ -4,7 +4,7 @@ from robotchallenge.Robot.robot import Robot
 from robotchallenge.Commands.command import Command
 from robotchallenge.constants import ROTATE_DIRECTIONS
 from typing import List
-
+from robotchallenge.Simulator.utilities import get_output_string
 
 class Simulator:
     """
@@ -18,10 +18,18 @@ class Simulator:
         self.robot = robot
         self.commands = commands
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """
+        Returns the string representation of the simulator.
+        :return:
+        """
         return "Simulator(board={}, robot={}, commands={})".format(self.board, self.robot, self.commands)
 
-    def run(self):
+    def run(self) -> None:
+        """
+        Runs the simulator.
+        :return: None
+        """
         for command in self.commands:
             if command.get_command() == "PLACE":
                 if self.board.position_on_board(command.get_argument("x_coordinate"),
@@ -44,15 +52,19 @@ class Simulator:
             logging.debug(command)
             logging.debug(self.robot)
 
-    def get_result(self):
-        return "Output: {},{},{}".format(
-            self.robot.x_coordinate,
-            self.robot.y_coordinate,
-            self.robot.direction_facing
-        )
+    def get_result(self) -> str:
+        """
+        Returns the result of the simulator.
+        :return: string representation of the output of the simulator.
+        """
+        return get_output_string(self.robot.x_coordinate, self.robot.y_coordinate, self.robot.direction_facing)
 
 
 class SimulatorError(Exception):
+    """
+    SimulatorError class.
+    It is responsible for raising the error when the simulator is not able to process the command.
+    """
     def __init__(self, data):
         self.data = data
 

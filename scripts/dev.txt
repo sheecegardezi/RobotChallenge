@@ -1,0 +1,4 @@
+# update pipy
+python setup.py sdist
+twine upload dist/*
+

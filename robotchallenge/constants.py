@@ -1,3 +1,7 @@
+"""
+This file contains the rules on which this abstraction of Robot Challenge is based on.
+"""
+
 SIZE_OF_BOARD = 5
 STARTING_POSITION = (0, 0)
 STARTING_DIRECTION = "NORTH"
